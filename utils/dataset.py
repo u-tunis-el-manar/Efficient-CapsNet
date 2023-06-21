@@ -68,11 +68,15 @@ class Dataset(object):
 
     def get_dataset(self):
         if self.model_name == 'MNIST':
-            (self.X_train, self.y_train), (self.X_test, self.y_test) = tf.keras.datasets.mnist.load_data(path=self.config['mnist_path'])
+            #(self.X_train, self.y_train), (self.X_test, self.y_test) = tf.keras.datasets.mnist.load_data(path=self.config['mnist_path'])
+            self.X_train = np.load('utils/my_x_train.npy')
+            self.y_train = np.load('utils/my_y_train.npy') 
+            self.X_test = np.load('utils/my_x_test.npy')  
+            self.y_test = np.load('utils/my_y_test.npy') 
             # prepare the data
             self.X_train, self.y_train = pre_process_mnist.pre_process(self.X_train, self.y_train)
             self.X_test, self.y_test = pre_process_mnist.pre_process(self.X_test, self.y_test)
-            self.class_names = list(range(10))
+            self.class_names = list(range(8))
             print("[INFO] Dataset loaded!")
         elif self.model_name == 'SMALLNORB':
                     # import the datatset
