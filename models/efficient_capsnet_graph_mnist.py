@@ -39,7 +39,7 @@ def efficient_capsnet_graph(input_shape):
     x = tf.keras.layers.BatchNormalization()(x)
     x = PrimaryCaps(128, 9, 16, 8)(x)
     
-    digit_caps = FCCaps(10,16)(x)
+    digit_caps = FCCaps(8,16)(x)
     
     digit_caps_len = Length(name='length_capsnet_output')(digit_caps)
 
@@ -78,8 +78,8 @@ def build_graph(input_shape, mode, verbose):
     verbose: bool
     """
     inputs = tf.keras.Input(input_shape)
-    y_true = tf.keras.layers.Input(shape=(10,))
-    noise = tf.keras.layers.Input(shape=(10, 16))
+    y_true = tf.keras.layers.Input(shape=(8,))
+    noise = tf.keras.layers.Input(shape=(8, 16))
 
     efficient_capsnet = efficient_capsnet_graph(input_shape)
 
