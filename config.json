@@ -1,6 +1,6 @@
 {
     "eps": 10e-21,
-    "MNIST_INPUT_SHAPE": [28,28,1], 
+    "MNIST_INPUT_SHAPE": [132,159,1], 
     "SMALLNORB_INPUT_SHAPE": [48,48,2],
     "MULTIMNIST_INPUT_SHAPE": [36,36,1],
     "lr": 5e-4,
